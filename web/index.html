@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -27,13 +28,61 @@
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <title>lottery_flutter</title>
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <!-- <script src="contract/web3.js"></script> -->
+  <!-- <script src="contract/web3.js"></script> -->
+  <script src="contract/web3.js"></script>
+  <script src="contract/lottery.js"></script>
 </head>
+
 <body>
+  <script>
+  //   window.addEventListener('load', function () {
+  //     if (window.ethereum) {
+  //       window.ethereum.request({ method: "eth_requestAccounts" });
+  //       const web3 = new Web3(window.ethereum);
+
+  //       const address = '0x0403f65104A7eC4D5153f4De4cAB4897200a41B6';
+  //       const abi = [{ "inputs": [], "stateMutability": "nonpayable", "type": "constructor", "signature": "constructor" }, { "inputs": [], "name": "enter", "outputs": [], "stateMutability": "payable", "type": "function", "payable": true, "signature": "0xe97dcb62" }, { "inputs": [], "name": "getPlayers", "outputs": [{ "internalType": "address payable[]", "name": "", "type": "address[]" }], "stateMutability": "view", "type": "function", "constant": true, "signature": "0x8b5b9ccc" }, { "inputs": [], "name": "manager", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function", "constant": true, "signature": "0x481c6a75" }, { "inputs": [], "name": "pickWinner", "outputs": [], "stateMutability": "nonpayable", "type": "function", "signature": "0x5d495aea" }, { "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "name": "players", "outputs": [{ "internalType": "address payable", "name": "", "type": "address" }], "stateMutability": "view", "type": "function", "constant": true, "signature": "0xf71d96cb" }];
+
+  //       lottery = new web3.eth.Contract(abi, address);
+  //     } else {
+  //       console.log("Non-Ethereum browser detected. You should consider installing MetaMask.");
+  //     }
+  //   });
+
+  // </script>
+  <!-- <script>
+    window.addEventListener('load', function () {
+      if (window.ethereum) {
+        window.web3 = new Web3(ethereum);
+        ethereum.enable()
+          .then(() => {
+            console.log("Ethereum enabled");
+
+            web3.eth.getAccounts(function (err, acc) {
+              if (err != null) {
+                self.setStatus("There was an error fetching your accounts");
+                return;
+              }
+              if (acc.length > 0) {
+                console.log(acc);
+              }
+            });
+          })
+          .catch(() => {
+            console.warn('User didn\'t allow access to accounts.');
+            waitLogin();
+          });
+      } else {
+        console.log("Non-Ethereum browser detected. You should consider installing MetaMask.");
+      }
+    });
+  </script> -->
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
@@ -102,4 +151,5 @@
     }
   </script>
 </body>
+
 </html>
