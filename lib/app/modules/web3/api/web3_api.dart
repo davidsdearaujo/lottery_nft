@@ -5,30 +5,29 @@ import 'dart:ui';
 
 import 'package:js/js.dart';
 
-import '../value_objects/hash_value.dart';
-import 'models/js_error.dart';
-import 'models/listen_type_enum.dart';
+import '../models/js_error.dart';
+import '../models/listen_type_enum.dart';
 
-export 'models/listen_type_enum.dart';
-export 'models/listen_type_enum.dart';
+export '../models/listen_type_enum.dart';
+export '../models/listen_type_enum.dart';
 
-part 'interop/web3_api_interop.dart';
+part 'web3_api_interop.dart';
 
 class Web3Api {
-  Future<double> getAccountBalance(HashValue accountHash) async {
+  Future<double> getAccountBalance(String accountAddress) async {
     final completer = Completer<String>();
-    _getAccountBalance(accountHash.toString(), allowInterop(completer.complete), allowInterop(completer.completeError));
+    _getAccountBalance(accountAddress, allowInterop(completer.complete), allowInterop(completer.completeError));
     final stringBalance = await completer.future;
     final balance = double.parse(stringBalance);
 
     return balance;
   }
 
-  Future<List<HashValue>> getAccounts() async {
+  Future<List<String>> getAccounts() async {
     final completer = Completer<List>();
     _getAccounts(allowInterop(completer.complete), allowInterop(completer.completeError));
     final accounts = await completer.future;
-    return accounts.cast<String>().map((hash) => HashValue(hash)).toList();
+    return accounts.cast<String>().toList();
   }
 
   Future<VoidCallback> listen(ListenTypeEnum type, void Function() onUpdate) async {

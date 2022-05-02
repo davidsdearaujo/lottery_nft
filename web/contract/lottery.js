@@ -24,19 +24,15 @@ function lotteryConfigure(callback, errorCallback) {
   }
 }
 
-function lotteryGetManagerHash(callback, errorCallback) {
+function lotteryGetManagerAddress(callback, errorCallback) {
   lottery.methods.manager().call()
     .then((response) => callback(response))
     .catch((error) => errorCallback(error))
 }
 
-function lotteryGetTotalAmount(callback, errorCallback) {
-  web3.eth.getBalance(lottery.options.address)
-    .then((weiAmount) => {
-      let etherAmount = web3.utils.fromWei(weiAmount)
-      callback(etherAmount)
-    })
-    .catch((error) => errorCallback(error))
+
+function lotteryGetAccountAddress(responseCallback) {
+  responseCallback(lottery.options.address)
 }
 
 function lotteryGetPlayers(callback, errorCallback) {
@@ -45,9 +41,9 @@ function lotteryGetPlayers(callback, errorCallback) {
     .catch((error) => errorCallback(error))
 }
 
-function lotteryEnter(accountHash, etherAmmount, callback, errorCallback) {
+function lotteryEnter(accountAddress, etherAmmount, callback, errorCallback) {
   lottery.methods.enter().send({
-    from: accountHash,
+    from: accountAddress,
     value: web3.utils.toWei(etherAmmount, 'ether'),
   }).then(() => callback())
     .catch(
@@ -61,4 +57,10 @@ function lotteryEnter(accountHash, etherAmmount, callback, errorCallback) {
       }
     )
   // .catch((error) => errorCallback(error))
+}
+
+function lotteryPickWinner(callback, errorCallback) {
+  lottery.methods.pickWinner().call()
+    .then((response) => callback())
+    .catch((error) => errorCallback(error))
 }

@@ -1,6 +1,6 @@
-class HashValue {
+class AddressValue {
   final String value;
-  HashValue(this.value);
+  AddressValue(this.value);
 
   String toShortString() {
     return value.substring(0, 5) + '...' + value.substring(value.length - 4, value.length);
