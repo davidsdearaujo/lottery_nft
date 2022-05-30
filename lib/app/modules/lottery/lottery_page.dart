@@ -31,7 +31,7 @@ class _LotteryPageState extends State<LotteryPage> with ErrorListMixin {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       controller.init().then((_) => setState(() => isLoaded = true));
     });
   }
@@ -81,7 +81,7 @@ class _LotteryPageState extends State<LotteryPage> with ErrorListMixin {
                               },
                               SizedBox(height: 25),
                               UserInteractionCard(),
-                              if (!controller.isCurrentAccountManager) ...{
+                              if (controller.isCurrentAccountManager) ...{
                                 const Divider(thickness: 2),
                                 const Text(
                                   'Ready to pick a winner',

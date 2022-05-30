@@ -10,7 +10,7 @@ mixin ErrorListMixin<T extends StatefulWidget> on State<T> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       for (var store in shouldListenError) {
         final disposer = store.observer(onError: (error) => ErrorMixin.showDialogOnError(error, context));
         _observableDisposers.add(disposer);

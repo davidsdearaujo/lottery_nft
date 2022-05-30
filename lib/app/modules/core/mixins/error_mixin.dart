@@ -32,7 +32,7 @@ mixin ErrorMixin<T extends StatefulWidget> on State<T> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _observableDisposer = store.observer(onError: (error) => showDialogOnError(error, context));
     });
   }
