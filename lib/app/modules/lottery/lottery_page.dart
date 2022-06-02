@@ -100,8 +100,8 @@ class _LotteryPageState extends State<LotteryPage> with ErrorListMixin {
                                   if (!controller.lotteryEnterStore.isLoading) return Container();
                                   return Column(
                                     children: const [
-                                      Text('Apostando, aguarde por favor...'),
-                                      Text('(esse processo pode demorar em torno de 15 segundos)'),
+                                      Text('Placing a bet, please wait...'),
+                                      Text('(this process can take around 15 seconds)'),
                                     ],
                                   );
                                 },
