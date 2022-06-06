@@ -30,6 +30,7 @@ function subscribeUpdates(type, responseCallback, errorCallback, disposerCallbac
     })
 }
 
+
 function getAccountBalance(account, responseCallback, errorCallback) {
     web3.eth.getBalance(account)
         .then((weiBalance) => {
