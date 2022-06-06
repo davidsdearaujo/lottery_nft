@@ -5,14 +5,14 @@ Example of a lottery project implemented based on [Stephen Grider's course](http
 ### Folders
 <details open>
 <summary><b>contract</b> - Smart contract;</summary>
- Code extracted from the course mentioned above
-  
- - contract/contracts/Lottery.sol - Solidity code
- - deploy.js - Code to deploy contract instances to the Blockchain
- - test/Lottery.test.js - All project tests
+  Code extracted from the course mentioned above
+
+   - contract/contracts/Lottery.sol - Solidity code
+   - deploy.js - Code to deploy contract instances to the Blockchain
+   - test/Lottery.test.js - All project tests
   
 </details>
 
 <details>
 <summary><b>flutter_app</b> - Flutter project <i>(look the tabs)</i></summary>
-  All screens and web3 integration with the Lottery Project
+   All screens and web3 integration with the Lottery Project
