@@ -1,16 +1,18 @@
-# lottery_flutter
+# Lottery project
 
-A new Flutter project.
+Example of a lottery project implemented based on [Stephen Grider's course](https://www.udemy.com/course/ethereum-and-solidity-the-complete-developers-guide/), the goal of the current project is to integrate the Lottery project with Flutter.
 
-## Getting Started
+### Folders
+<details open>
+<summary><b>contract</b> - Smart contract;</summary>
+ Code extracted from the course mentioned above
+  
+ - contract/contracts/Lottery.sol - Solidity code
+ - deploy.js - Code to deploy contract instances to the Blockchain
+ - test/Lottery.test.js - All project tests
+  
+</details>
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<details>
+<summary><b>flutter_app</b> - Flutter project <i>(look the tabs)</i></summary>
+  All screens and web3 integration with the Lottery Project
