@@ -59,7 +59,8 @@ class LotteryController {
   }
 
   Future<void> onPickWinnerButtonPressed(BuildContext context) async {
-    await lotteryPickWinnerStore.pickWinner();
+    final selectedAccountAddress = selectAccountStore.state.selectedAccountAddress;
+    await lotteryPickWinnerStore.pickWinner(selectedAccountAddress);
     final winnerAddress = lotteryPickWinnerStore.state.winnerAddress;
     showDialog(
       context: context,

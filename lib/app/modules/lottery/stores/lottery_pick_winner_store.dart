@@ -18,10 +18,10 @@ class LotteryPickWinnerStore extends StreamStore<Failure, LotteryPickWinnerState
     destroy();
   }
 
-  Future<void> pickWinner() async {
+  Future<void> pickWinner(AddressValue? accountAddress) async {
     try {
       setLoading(true);
-      if (state.winnerAddress == null) await _lotteryApi.pickWinner();
+      if (state.winnerAddress == null) await _lotteryApi.pickWinner(accountAddress.toString());
     } on Failure catch (failure) {
       setError(failure);
       rethrow;

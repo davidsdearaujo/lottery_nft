@@ -16,4 +16,4 @@ external void _getManagerAddress(void Function(String) callback, void Function(J
 external void _getAccountAddress(void Function(String) responseCallback);
 
 @JS('lotteryPickWinner')
-external void _pickWinner(void Function() callback, void Function(JsError) errorCallback);
+external void _pickWinner(String accountAddress, void Function() callback, void Function(JsError) errorCallback);

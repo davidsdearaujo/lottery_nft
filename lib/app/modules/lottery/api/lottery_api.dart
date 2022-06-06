@@ -58,13 +58,13 @@ class LotteryApi {
     return players.cast<String>().toList();
   }
 
-  Future<void> pickWinner() async {
+  Future<void> pickWinner(String accountAddress) async {
     await _uncaughtFailureValidate(
       defaultMessage: 'Winner not catched. Please try again.',
       callback: () async {
         try {
           final completer = Completer<void>();
-          _pickWinner(allowInterop(completer.complete), allowInterop(completer.completeError));
+          _pickWinner(accountAddress, allowInterop(completer.complete), allowInterop(completer.completeError));
           await completer.future;
         } on JsError catch (error, stackTrace) {
           if (error.code == -32000) throw ManagerAccountRequiredFailure(exception: error, stackTrace: stackTrace);
